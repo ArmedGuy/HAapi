@@ -1,0 +1,20 @@
+{
+  "name": "haapi",
+  "version": "1.0.0",
+  "description": "API and web frontend for HAproxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node index.js"
+  },
+  "author": "Johan Jatko <armedguy@hardware.fail>",
+  "license": "MIT",
+  "dependencies": {
+    "agenda": "^0.8.1",
+    "agendash": "^0.3.1",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "mongodb": "^2.1.18",
+    "mongoose": "^4.5.2"
+  }
+}
