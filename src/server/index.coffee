@@ -1,5 +1,6 @@
 express = require 'express'
 mongoose = require 'mongoose'
+bodyParser = require 'body-parser'
 Agenda = require 'agenda'
 Agendash = require 'agendash'
 debug = (require 'debug')('haapi:bootstrap')
@@ -23,7 +24,7 @@ module.exports =
 			# load model definitions
 			load './models/index', db
 
-			# load agenda and agendash for task management
+			# load agenda and agendash for task scheduling
 			agenda = new Agenda
 			agenda.database dburl
 			# register agendash
@@ -31,11 +32,15 @@ module.exports =
 
 			# load job definitions
 			load './jobs/index', agenda, db
-
+			app.use bodyParser.json()
 			# give access to database on request
 			app.use (req, res, next) ->
 				req.db = db
 				next()
+
+			# static files, __dirname should be lib/server
+			app.use '/js', express.static "#{__dirname}../client"
+			app.use express.static "#{__dirname}/../../public"
 
 			# load routes, done on db conn because app.use for db needs to be before routes
 			app.use(load './routes/index', app)

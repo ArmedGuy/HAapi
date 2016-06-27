@@ -1,4 +1,5 @@
 models = [
+	'haapi'
 ]
 module.exports = (db) ->
 	for model in models

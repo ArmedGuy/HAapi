@@ -54,7 +54,7 @@ module.exports = (db, Schema, ObjectId) ->
 	db.model 'Config', Config
 
 	ProxyServer = new Schema
-		adress:
+		address:
 			type: String
 			default: 'server.example.com'
 			unique: true
