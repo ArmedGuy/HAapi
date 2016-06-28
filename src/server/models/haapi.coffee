@@ -56,7 +56,7 @@ module.exports = (db, Schema, ObjectId) ->
 	ProxyServer = new Schema
 		address:
 			type: String
-			default: 'server.example.com'
+			required: true
 			unique: true
 		port:
 			type: Number
@@ -67,5 +67,8 @@ module.exports = (db, Schema, ObjectId) ->
 		privateKey:
 			type: String
 			default: '/home/haapi/.ssh/id_rsa'
+		configFile:
+			type: String
+			default: '/etc/haproxy/haproxy.conf'
 		activeConfig: Config
 	db.model 'ProxyServer', ProxyServer

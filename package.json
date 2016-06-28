@@ -1,5 +1,5 @@
 {
-  "name": "haapi",
+  "name": "HAapi",
   "version": "1.0.0",
   "description": "API and web frontend for HAproxy",
   "main": "index.js",
