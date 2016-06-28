@@ -32,6 +32,9 @@ module.exports =
 
 			# load job definitions
 			load './jobs/index', agenda, db
+			agenda.on 'ready', () ->
+				agenda.start()
+
 			app.use bodyParser.json()
 			# give access to database on request
 			app.use (req, res, next) ->

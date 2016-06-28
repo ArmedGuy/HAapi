@@ -67,6 +67,10 @@ module.exports = (db, Schema, ObjectId) ->
 		privateKey:
 			type: String
 			default: '/home/haapi/.ssh/id_rsa'
+		status:
+			canConnect: Boolean
+			canAccessConfig: Boolean
+			isStarted: Boolean
 		configFile:
 			type: String
 			default: '/etc/haproxy/haproxy.conf'

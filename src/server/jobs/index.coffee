@@ -1,4 +1,5 @@
 jobs = [
+	'access'
 ]
 module.exports = (agenda, db) ->
 	for job in jobs
