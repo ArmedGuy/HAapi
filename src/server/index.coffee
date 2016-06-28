@@ -39,6 +39,7 @@ module.exports =
 			# give access to database on request
 			app.use (req, res, next) ->
 				req.db = db
+				req.agenda = agenda
 				next()
 
 			# static files, __dirname should be lib/server

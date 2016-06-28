@@ -73,6 +73,6 @@ module.exports = (db, Schema, ObjectId) ->
 			isStarted: Boolean
 		configFile:
 			type: String
-			default: '/etc/haproxy/haproxy.conf'
+			default: '/etc/haproxy/haproxy.cfg'
 		activeConfig: Config
 	db.model 'ProxyServer', ProxyServer
