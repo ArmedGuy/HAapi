@@ -5,6 +5,7 @@ router = new express.Router
 routes = [
 	'app'
 	'api/proxy'
+	'api/config'
 #	'api/server'
 #	'api/frontend'
 #	'api/backend'

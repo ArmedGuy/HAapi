@@ -1,7 +1,27 @@
 module.exports = (db, Schema, ObjectId) ->
-	UseBackend = new Schema
-		backend:
+	BackendServer = new Schema
+		name:
 			type: String
+		path:
+			type: String
+		options:
+			type: String
+	db.model 'BackendServer', BackendServer
+
+	Backend = new Schema
+		name:
+			type: String
+		balance:
+			type: String
+			default: 'roundrobin'
+		mode:
+			type: String
+		options: [String]
+		servers: [BackendServer]
+	db.model 'Backend', Backend
+
+	UseBackend = new Schema
+		backend: Backend
 		ifs:
 			type: String
 	db.model 'UseBackend', UseBackend
@@ -23,31 +43,13 @@ module.exports = (db, Schema, ObjectId) ->
 		options: [String]
 		acl: [ACL]
 		use: [UseBackend]
-		default_use: UseBackend
+		default_use: Backend
 	db.model 'Frontend', Frontend
-
-	BackendServer = new Schema
-		name:
-			type: String
-		path:
-			type: String
-		options:
-			type: String
-	db.model 'BackendServer', BackendServer
-
-	Backend = new Schema
-		name:
-			type: String
-		balance:
-			type: String
-			default: 'roundrobin'
-		mode:
-			type: String
-		servers: [BackendServer]
-	db.model 'Backend', Backend
 
 	Config = new Schema
 		name:
+			type: String
+		generalConfig:
 			type: String
 		frontends: [Frontend]
 		backends: [Backend]

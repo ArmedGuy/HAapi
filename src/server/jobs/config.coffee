@@ -1,4 +1,5 @@
 debug = (require 'debug')('haapi:jobs:config')
+ConfigBuilder = require '../utils/config-builder'
 ssh2 = require 'node-ssh'
 module.exports = (agenda, db) ->
 	ProxyServer = db.model 'ProxyServer'
